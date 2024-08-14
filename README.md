@@ -4,8 +4,8 @@
 dockerの立ち上げ
 ```
 cd docker
-docker compose up -d -p (プロジェクト名) --build
-docker exec -it (コンテナ名) bash
+docker compose up -d  --build
+docker exec -it main bash
 ```
 
 botの実行
