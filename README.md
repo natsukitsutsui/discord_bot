@@ -1,6 +1,10 @@
 ## Discord Bot
 (編集中)
 
+```
+cp .env.template .env
+```
+
 dockerの立ち上げ
 ```
 cd docker
