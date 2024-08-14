@@ -6,4 +6,5 @@ services:
     container_name: 'main'
     working_dir: '/root/'
     tty: true
-    volumes: app:/root/workspace
+    volumes:
+      - ../:/root/workspace
