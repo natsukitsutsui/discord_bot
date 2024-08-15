@@ -14,7 +14,8 @@ bot = commands.Bot(intents=intents, command_prefix="!")
 @bot.event
 async def setup_hook():
     await bot.load_extension("cogs.login")
-    await bot.load_extension("cogs.copy_chat")
+    # await bot.load_extension("cogs.copy_chat")
+    await bot.load_extension("cogs.summarize_news")
     # await bot.load_extension("cogs.openai_chat")
 
 

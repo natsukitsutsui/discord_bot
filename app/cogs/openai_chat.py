@@ -5,6 +5,7 @@ from openai import OpenAI
 from dotenv import load_dotenv
 from discord.ext import commands
 
+from utils.validate_reply import validate_reply
 
 class OpenAIChatCog(commands.Cog):
     def __init__(self, bot):
@@ -12,12 +13,7 @@ class OpenAIChatCog(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, ctx):
-        if ctx.author == self.bot.user:
-            return
-
-        # 一旦対象チャンネルだけで動作
-        # この辺の仕様は詰めたい
-        if ctx.channel.id != int(os.getenv("CHAT_CHANNEL_ID")):
+        if validate_reply(ctx, self.bot, "CHAT_CHANNEL_ID"):
             return
         
         openai_client = OpenAI(api_key=os.getenv("SECRET_KEY"))
