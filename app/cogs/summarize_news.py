@@ -3,16 +3,18 @@ from openai import OpenAI
 from discord.ext import commands
 
 from utils.validate_reply import validate_reply
+from models.news import News
 
 class SummarizeNewsCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.news = News()
 
     @commands.command(name="news")
     async def summarize_news(self, ctx):
         if validate_reply(ctx, self.bot, "COMMANDS_CHANNEL_ID"):
-            return 
-        
+            return
+
         await ctx.channel.send("Hello")
 
 
